@@ -19,28 +19,27 @@ public class UserLinkedList {
         System.out.println("NULL");
     }
 
-    public static void count(UserLinkedList head){
-        int count=0;
+    public static void count(UserLinkedList head) {
+        int count = 0;
         UserLinkedList temp = head;
-        while(temp != null){
+        while (temp != null) {
             count++;
-            temp=temp.next;
+            temp = temp.next;
         }
-        System.out.println("Count is: "+count);
+        System.out.println("Count is: " + count);
     }
 
-    public static void findEven( UserLinkedList head){
+    public static void findEven(UserLinkedList head) {
         UserLinkedList temp = head;
-        int sum=0;
-        while(temp!=null){
-            if(temp.data%2==0){
-                sum+= temp.data;
+        int sum = 0;
+        while (temp != null) {
+            if (temp.data % 2 == 0) {
+                sum += temp.data;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
-        System.out.println("Sum of even number is: "+sum);
+        System.out.println("Sum of even number is: " + sum);
     }
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -62,25 +61,23 @@ public class UserLinkedList {
         count(head);
         findEven(head);
 
-
-
         // Converting Array to LinkedList
-        int []arr= new int[size];
+        int[] arr = new int[size];
 
         System.out.println("Enter the element at index 1: ");
         UserLinkedList head2 = new UserLinkedList(sc.nextInt());
         UserLinkedList arrayTemp = head2;
 
-        for(int i=0;i<size-1;i++){
-            System.out.println("Enter element at index "+(i+2)+": ");
-            arr[i]=sc.nextInt();
+        for (int i = 0; i < size - 1; i++) {
+            System.out.println("Enter element at index " + (i + 2) + ": ");
+            arr[i] = sc.nextInt();
         }
 
-
-        for(int i=0;i<size-1;i++){
-            arrayTemp.next= new UserLinkedList(arr[i]);
-            arrayTemp=arrayTemp.next;
+        for (int i = 0; i < size - 1; i++) {
+            arrayTemp.next = new UserLinkedList(arr[i]);
+            arrayTemp = arrayTemp.next;
         }
+        
         print(head2);
         count(head2);
         findEven(head2);
