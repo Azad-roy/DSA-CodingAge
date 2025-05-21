@@ -27,7 +27,7 @@ public class Stack {
         }
         return arr[top];
     }
-
+    
     public int size() {
         if (top == -1) {
             System.out.println("Stack is empty!!");

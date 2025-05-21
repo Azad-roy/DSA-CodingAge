@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class Queue {
+public class Queues {
     int size;
     int[] arr;
 
-    public Queue(int size) {
+    public Queues(int size) {
         this.size = size;
         arr = new int[size];
     }
@@ -15,7 +15,7 @@ public class Queue {
 
     public void push(int elem) {
         if (noe == size) {
-            System.out.println("Queue is full");
+            System.out.println("Queues is full");
             return;
         }
 
@@ -34,43 +34,45 @@ public class Queue {
 
     }
 
+    // public int pop() {
+    // if (start == -1) {
+    // System.out.println("Stack is empty");
+    // return 0; // esko false krna h, or neche me condition lga kr esko haldle krna
+    // h.
+    // }
+
+    // int popedElem = arr[start];
+    // start++;
+    // end--;
+    // noe--;
+    // return popedElem;
+    // }
+
     public int pop() {
-        if (start == -1) {
-            System.out.println("Stack is empty");
-            return 0; // esko false krna h, or neche me condition lga kr esko haldle krna h.
+        if (noe == 0) {
+            System.out.println("Queue is empty");
+            return -1;
         }
 
-        int popedElem = arr[start];
-        start++;
-        end--;
+        int poppedElem = arr[start];
+        start = (start + 1) % size;
         noe--;
-        return popedElem;
-    }
 
-    public void print(){
-        for(int elem: arr){
-            System.out.print(elem+" ");
-        }
+        return poppedElem;
     }
 
     public int capacity() {
         return noe;
     }
 
-    // public void print(){
-    //     for(int i=0;i<noe;i++){ // Added by ankit
-    //         System.out.print(arr[(start+i)%size]+" ");
-    //     }
-    // }
-
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the size of the queue: ");
+        System.out.println("Enter the size of the queues: ");
         int size = sc.nextInt();
 
-        Queue q = new Queue(size);
+        Queues q = new Queues(size);
 
         System.out.println("Pop element: " + q.pop());
         q.push(78);
@@ -84,8 +86,13 @@ public class Queue {
 
         q.push(0);
         System.out.println("Pop element: " + q.pop());
+        System.out.println("Pop element: " + q.pop());
+        q.push(10);
+        System.out.println("Pop element: " + q.pop());
+        System.out.println("Pop element: " + q.pop());
         System.out.println("Size: " + q.capacity());
+        q.push(1010);
+        System.out.println("Pop element: " + q.pop());
 
-        // q.print();
     }
 }
