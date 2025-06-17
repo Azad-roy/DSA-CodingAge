@@ -37,11 +37,11 @@ public class Stacks {
     }
 
     public void reverDisplay() {
-        for (int i = 0; i < top; i++) {
-            for (int j = 0; j < top; j++) {
-                int temp = 0;
-                if (arr[i] > arr[j]) {
-                    temp = arr[i];
+        for (int i = 0; i <= top; i++) {
+            for (int j = i+1; j <= top; j++) {
+                // int temp = 0;
+                if (arr[i] < arr[j]) {
+                    int temp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = temp;
                 }
@@ -51,7 +51,7 @@ public class Stacks {
         for (int i = 0; i <= top; i++) {
             System.out.print(arr[i] + " ");
         }
-    }
+}
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -69,6 +69,8 @@ public class Stacks {
         System.out.println("Pop element: " + stk.pop());
 
         stk.size();
+
+        System.out.println("Reverse:- ");
         stk.reverDisplay();
     }
 }

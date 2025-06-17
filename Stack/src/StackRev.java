@@ -1,4 +1,4 @@
-public class Stack{
+public class StackRev{
     int top = -1;
     int[] arr = new int[10];
 
@@ -45,12 +45,12 @@ public class Stack{
         // Print reversed stack
         System.out.println("Reversed stack elements:");
         for (int i = 0; i <= top; i++) {
-            System.out.println(arr[i]);
+            System.out.print(arr[i]+" ");
         }
     }
 
     public static void main(String[] args) {
-        Stack st = new Stack();
+        StackRev st = new StackRev();
         st.push(45);
         st.push(5);
         st.push(450);
